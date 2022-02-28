@@ -1,0 +1,55 @@
+﻿/****** Object:  Table [dbo].[Dependent]    Script Date: 2/27/2022 10:32:07 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Dependent](
+	[Id] [bigint] NOT NULL,
+	[FirstName] [nvarchar](64) NOT NULL,
+	[LastName] [nvarchar](64) NOT NULL,
+	[EmployeeId] [bigint] NULL,
+ CONSTRAINT [PK_Dependent] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Employee]    Script Date: 2/27/2022 10:32:07 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Employee](
+	[Id] [bigint] NOT NULL,
+	[FirstName] [nvarchar](64) NOT NULL,
+	[LastName] [nvarchar](64) NOT NULL,
+	[QuoteId] [bigint] NULL,
+ CONSTRAINT [PK_Employee] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Quote]    Script Date: 2/27/2022 10:32:07 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Quote](
+	[Id] [bigint] NOT NULL,
+ CONSTRAINT [PK_Quote] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Dependent]  WITH CHECK ADD  CONSTRAINT [FK_Dependent_Employee] FOREIGN KEY([EmployeeId])
+REFERENCES [dbo].[Employee] ([Id])
+GO
+ALTER TABLE [dbo].[Dependent] CHECK CONSTRAINT [FK_Dependent_Employee]
+GO
+ALTER TABLE [dbo].[Employee]  WITH CHECK ADD  CONSTRAINT [FK_Employee_Quote] FOREIGN KEY([QuoteId])
+REFERENCES [dbo].[Quote] ([Id])
+GO
+ALTER TABLE [dbo].[Employee] CHECK CONSTRAINT [FK_Employee_Quote]
+GO
