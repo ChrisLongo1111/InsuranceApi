@@ -54,11 +54,6 @@ namespace Repository
             }
         }
 
-        /// <summary>
-        /// https://stackoverflow.com/questions/10235750/how-to-get-values-for-child-objects-using-dapper-orm
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         public async Task<Quote> GetByIdAsync(long id)
         {
             var sql = @"SELECT * FROM Quote WHERE Id = @Id 
@@ -87,7 +82,7 @@ namespace Repository
             using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
             {
                 connection.Open();
-                var result = await connection.ExecuteAsync(sql, entity);
+                var result = await connection.ExecuteAsync(sql, new { Id = entity.Id, Name = entity.Name } );
                 return result;
             }
         }

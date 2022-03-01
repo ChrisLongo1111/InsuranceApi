@@ -1,7 +1,6 @@
 ﻿using DbUp;
 using System;
 using System.Configuration;
-using System.Linq;
 using System.Reflection;
 
 namespace InsuranceDatabase
@@ -9,7 +8,7 @@ namespace InsuranceDatabase
     internal class Program
     {
         /// <summary>
-        ///     https://dbup.readthedocs.io/en/latest/
+        /// https://dbup.readthedocs.io/en/latest/
         /// </summary>
         static int Main(string[] args)
         {
