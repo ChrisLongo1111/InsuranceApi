@@ -87,5 +87,8 @@
   <ItemGroup>
     <EmbeddedResource Include="Scripts\Script0001-create.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\Script0002-test-data.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
