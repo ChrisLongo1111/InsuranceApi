@@ -5,6 +5,9 @@ using Repository.Models;
 
 namespace InsuranceApi.Controllers
 {
+    /// <summary>
+    /// https://docs.microsoft.com/en-us/aspnet/web-api/overview/web-api-routing-and-actions/routing-in-aspnet-web-api
+    /// </summary>
     [ApiController]
     [Route("[controller]")]
     public class InsuranceController : ControllerBase
