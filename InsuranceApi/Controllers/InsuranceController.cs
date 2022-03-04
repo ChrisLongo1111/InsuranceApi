@@ -33,7 +33,7 @@ namespace InsuranceApi.Controllers
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:long}")]
         public async Task<IActionResult> GetById(long id)
         {
             try
@@ -48,7 +48,7 @@ namespace InsuranceApi.Controllers
             }
         }
 
-        [HttpDelete]
+        [HttpDelete("{id:long}")]
         public async Task<IActionResult> Delete(long id)
         {
             try
